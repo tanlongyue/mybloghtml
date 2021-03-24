@@ -1,0 +1,23 @@
+#v{
+    /*利用attr来读取data-title的值*/
+    border: 1px solid #ccc;
+    background:#0086b3;
+    border-radius: 5px;
+    padding: 5px 20px;
+    text-align: center;
+    color:black;
+    position: absolute;
+    z-index: 100;
+    margin:auto;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+    width: 200px;
+    height: 35px;
+    font-size: 20px;
+}

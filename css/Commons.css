@@ -1,0 +1,6 @@
+.side-bar{background: url(../images/xufu1.ico) no-repeat;}
+.side-bar {width: 66px;position: fixed;top:50%;left:96.5%;font-size: 0;line-height: 0;z-index: 100;}
+.side-bar a {width: 66px;height: 66px;display: inline-block;margin-bottom: 2px;}
+.side-bar .icon-qq {background-position: 0 -62px;}
+.side-bar .icon-blog {background-position: 0 -198px;}
+.side-bar .icon-mail {background-position: 0 -266px;}
