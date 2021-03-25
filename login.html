@@ -68,7 +68,7 @@
         <div class="header" align="center">干净博客-用户注册</div>
         <div class="content" style="overflow: hidden;">
             <div>
-                <img src="http://192.168.0.101:8080/pictures/sdf.jpg" style="float: left;" width="320" height="290"/>
+                <img  src="" style="float: left;" id="regiestImage" width="320" height="290"/>
             </div>
             <form class="ui form" >
                 <div class="two">
@@ -116,7 +116,9 @@
 <!--雪花特效-->
 <script>
     $(function (){
-        $("body").css("background-image","url("+VMwareIp+"pictures/4kShaFaGirl.jpg)");
+        $("body").css("background-image","url("+VMwareIp+"pictures/4kShaFaGirl.jpg)")
+        $("#regiestImage").attr("src",VMwareIp+"pictures/sdf.jpg");
+
     })
 
     var stop, staticx;
