@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>先谢郭嘉的博客-程序</title>
+    <title>干净的博客-程序</title>
     <link href="images/favicon.ico" rel="icon" type="image/x-ico">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xiejiabin1/mybloghtml@master/css/me.css">
+    <link rel="stylesheet" href="css/me.css">
+    <link rel="stylesheet" href="css/Commons.css">
 </head>
 <body>
-<script src="https://cdn.jsdelivr.net/gh/xiejiabin1/mybloghtml@master/lib/live2d/autoload.js"></script>
+<script src="Project/autoload.js"></script>
 <div id="program">
     <!--导航-->
     <nav id="nav" class="gird-header" style="display: none">
         <div class="ui container">
             <div class="ui inverted secondary stackable menu">
-                <h2 class="ui olive header item" style="font-family: STSong">先谢郭嘉</h2>
+                <h2 class="ui olive header item" style="font-family: STSong">干净</h2>
                 <div class="right m-item item m-mobile-hide">
                     <a href="index.html" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
                     <a href="types.html?id=1" class="m-item item m-mobile-hide"><i class="clone outline icon"></i>分类</a>
@@ -59,11 +60,19 @@
         </div>
     </div>
 
+
     <!--悬浮框-->
-    <div class="levitate">
-        <div class="ui secondary segment form">
+    <div class="levitate" id="xufu">
+        <div class="ui secondary segment form" style="opacity: 70%">
+            <div style="position: absolute;left: 308px;top:-7px;" @click="xufu1">
+                <h2><strong>—</strong></h2>
+            </div>
+            <div style="position: absolute;left: 335px;top:-5px;" @click="xufu2">
+                <h2><strong>×</strong></h2>
+            </div>
+            <div style="margin-bottom: 10px;"></div>
             <div align="center">
-                <h4>名称：先谢郭嘉&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;坐标：湖南衡阳</h4>
+                <h4>名称：干净&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;坐标：贵州贵阳</h4>
             </div>
             <br>
             <div class="ui input">
@@ -75,6 +84,10 @@
             <div align="center"> <h4>音乐盒</h4></div>
             <div id="aplayer" class="aplayer" data-id="4877773231" data-server="netease" data-type="playlist" data-fixed="false" data-listfolded="true" data-order="list" data-theme="#F58EA8" style="width: 100%"></div>
         </div>
+    </div>
+
+    <div class="side-bar" id="music" style="display: none;" @click="xufu3">
+        <a href="#" class="icon-qq">音乐盒</a>
     </div>
 
     <!--中间内容-->
@@ -136,16 +149,16 @@
                 <div class="four wide column">
                     <h4 class="ui inverted header m-text-thin m-text-spaced " >联系我</h4>
                     <div class="ui inverted link list">
-                        <a href="#" class="item m-text-thin">Email：xie430423@163.com</a>
-                        <a href="#" class="item m-text-thin">QQ：2501267970</a>
+                        <a href="#" class="item m-text-thin">Email：239852497@qq.com</a>
+                        <a href="#" class="item m-text-thin">QQ：2398524975</a>
                     </div>
                 </div>
                 <div class="four wide column" >
                     <div class="ui inverted link list">
                         <div class="item">
                             <!--微信二维码-->
-                            <h4 class="ui inverted header m-text-thin m-text-spaced " >关注公众号</h4>
-                            <img src="images/gongzhonghao.jpg" class="ui m-margin-top rounded image" alt="" style="width: 110px">
+                            <h4 class="ui inverted header m-text-thin m-text-spaced " >添加QQ</h4>
+                            <img src="images/QQ.png" class="ui m-margin-top rounded image" alt="" style="width: 110px">
                         </div>
                     </div>
                 </div>
@@ -181,24 +194,24 @@
             <div style="color: #F08047;margin-top: -18px" class="ui inverted m-text-thin m-text-spaced">
                 我的网站已运行：<span id="htmer_time" class="item m-text-thin"></span>
             </div>
-            <a rel="nofollow" href="http://beian.miit.gov.cn" target="_blank">湘ICP备20013183号-1</a>
+            <a rel="nofollow" href="http://beian.miit.gov.cn" target="_blank">*************</a>
             <br/>
             <img style="width:24px;height:24px;margin-bottom:-8px" src="https://icp.gov.moe/images/ico64.png">
             <a href="https://icp.gov.moe" target="_blank" data-pjax-state="">萌号 </a>
-            <a href="https://icp.gov.moe/?keyword=2020430423" target="_blank" data-pjax-state=""> 2020430423号</a>
+            <a href="https://icp.gov.moe/?keyword=2020430423" target="_blank" data-pjax-state="">2020430423号</a>
         </div>
     </footer>
 </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/xiejiabin1/mybloghtml@master/js/cookie.js"></script>
+<script src="distJS/Jquery.min.js"></script>
+<script src="js/cookie.js"></script>
 <script src="js/serviceIp.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/xiejiabin1/mybloghtml@master/lib/waypoints/jquery.waypoints.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/xiejiabin1/mybloghtml@master/js/user/userCheck.js"></script>
-<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
-<script src="https://unpkg.com/meting@1.2/dist/Meting.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/xiejiabin1/mybloghtml@master/js/user/program.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/xiejiabin1/mybloghtml@master/js/foot.js"></script>
+<script src="lib/waypoints/jquery.waypoints.min.js"></script>
+<script src="js/user/userCheck.js"></script>
+<script src="distJS/semantic.min.js"></script>
+<script src="distJS/vue.min.js"></script>
+<script src="distJS/APlayer.min.js"></script>
+<script src="distJS/Meting.min.js"></script>
+<script src="js/user/program.js"></script>
+<script src="js/foot.js"></script>
 </html>

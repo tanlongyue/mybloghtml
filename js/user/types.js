@@ -8,16 +8,18 @@ let types = new Vue({
     },
     methods:{
         getTypeList(){
-            $.get(serverIp+"blogType/selectBlogTypeToCount",function (bto) {
-                if(bto.data != null){
-                    types.typeList = bto.data;
+            $.get(serverIp+"pub/selectBlogTypeToCount",{contentType:"application/json;charset=UTF-8",dataType:"json"},function (res) {
+                console.log(res)
+                if(res.data != null){
+                    types.typeList = res.data;
                 }else {
                     window.location.href="error.html";
                 }
             });
         },
         getInfo(pageNum){
-            $.get(serverIp+"blog/selectPublished", {pageNum:pageNum,pageSize:10,typeId:this.id}, function (bto) {
+            $.get(serverIp+"pub/classifiedClickQuery", {pageNum:pageNum,pageSize:10,typeId:this.id,contentType:"application/json;charset=UTF-8",dataType:"json"}, function (bto) {
+                console.log(bto)
                 if (bto.data != null) {
                     types.pageInfo = bto.data;
                     types.pageNum = pageNum;
@@ -30,6 +32,9 @@ let types = new Vue({
             this.id = id;
             this.getInfo(1);
         },
+        goType(id){
+            window.location.href = "types.html?id="+id;
+        }
     },
     filters:{
         dateFormat(dateTime){

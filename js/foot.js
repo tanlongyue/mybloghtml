@@ -25,7 +25,7 @@ function secondToDate(second) {
     return time;
 }
 function setTime() {
-    var create_time = Math.round(new Date(Date.UTC(2020, 6, 6, 10, 10, 10)).getTime() / 1000);
+    var create_time = Math.round(new Date(Date.UTC(2021, 1, 6, 10, 10, 10)).getTime() / 1000);
     var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
     currentTime = secondToDate((timestamp - create_time));
     currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天' + currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4] + '秒';
@@ -34,30 +34,30 @@ function setTime() {
 setInterval(setTime, 1000);
 
 setTimeout(function () {
-    $.get(serverIp + "blog/blogCount", function(bto) {
-		if (bto.data != null) {
-			$("#blog-message h2:eq(0)").html(bto.data);
+    $.get(serverIp + "pub/blogCount",{contentType:"application/json;charset=UTF-8",dataType:"json"}, function(fes) {
+		if (fes.data != null) {
+			$("#blog-message h2:eq(0)").html(fes.data);
 		} else {
 			window.location.href = "error.html";
 		}
 	});
-	$.get(serverIp + "count/selectCount", function(bto) {
-		if (bto.data != null) {
-			$("#blog-message h2:eq(1)").html(bto.data.counts);
+	$.get(serverIp + "pub/visitCount", {contentType:"application/json;charset=UTF-8",dataType:"json"},function(fes) {
+		if (fes.data != null) {
+			$("#blog-message h2:eq(1)").html(fes.data.counts);
 		} else {
 			window.location.href = "error.html";
 		}
 	});
-	$.get(serverIp + "comment/selectCount", function(bto) {
-		if (bto.data != null) {
-			$("#blog-message h2:eq(2)").html(bto.data);
+	$.get(serverIp + "comment/selectCount", {contentType:"application/json;charset=UTF-8",dataType:"json"},function(fes) {
+		if (fes.data != null) {
+			$("#blog-message h2:eq(2)").html(fes.data);
 		} else {
 			window.location.href = "error.html";
 		}
 	});
-	$.get(serverIp + "message/selectCount", function(bto) {
-    if (bto.data != null) {
-        $("#blog-message h2:eq(3)").html(bto.data);
+	$.get(serverIp + "pub/selectCount", {contentType:"application/json;charset=UTF-8",dataType:"json"},function(fes) {
+    if (fes.data != null) {
+        $("#blog-message h2:eq(3)").html(fes.data);
     } else {
         window.location.href = "error.html";
     }

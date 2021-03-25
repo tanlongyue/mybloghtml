@@ -95,12 +95,12 @@
             <div class="ui segment m-padded-tb-large m-opacity">
                 <div class="ui container" align="center">
                     <div class="ui labeled button m-margin-tb-tiny" v-for="type in typeList">
-                        <template v-if="id==type.id">
-                            <a href="javascript:;" class="ui basic button teal" @click="goTo(type.id)">{{type.name}}</a>
+                        <template v-if="id==type.typeid">
+                            <a href="javascript:;" class="ui basic button teal" @click="goTo(type.typeid)">{{type.typename}}</a>
                             <div class="ui basic left pointing label teal">{{type.blogCount}}</div>
                         </template>
                         <template v-else>
-                            <a href="javascript:;" class="ui basic button" @click="goTo(type.id)">{{type.name}}</a>
+                            <a href="javascript:;" class="ui basic button" @click="goTo(type.typeid)">{{type.typename}}</a>
                             <div class="ui basic left pointing label">{{type.blogCount}}</div>
                         </template>
                     </div>
@@ -109,39 +109,41 @@
 
             <div class="ui top attached teal m-opacity segment">
                 <template v-for="blog in pageInfo.list">
-                    <div class="ui padded vertical segment m-padded-tb-large">
-                        <div class="ui middle aligned mobile reversed stackable grid" >
-                            <div class="eleven wide column">
-                                <h3 class="ui header" ><a v-bind:href="'blog.html?blogId='+blog.blogId" target="_blank" class="m-black">{{blog.title}}</a></h3>
-                                <p class="m-text">{{blog.description}}......</p>
-                                <div class="ui grid">
+                    <div class="ui padded segment m-padded-tb-large m-opacity" >
+                        <div class="ui large aligned mobile reversed stackable grid" >
+                            <!--博文信息-->
+                            <div class="eleven wide column ">
+                                <h2 class="ui header" ><a v-bind:href="'blog.html?blogId='+blog.blogid" target="_blank" class="m-black">{{blog.title}}</a></h2>
+                                <p class="m-text m-margin-top-max" v-cloak>{{blog.description}}......</p>
+                                <div class="ui m-margin-top-max grid">
                                     <div class="eleven wide column">
                                         <div class="ui mini horizontal link list">
                                             <div class="item">
-                                                <img v-bind:src="'https://xiejiabin.online/images/avatar/'+blog.user.avatar" alt="" class="ui avatar image">
-                                                <div class="content"><a href="javascript:;" class="header">{{blog.user.nickName}}</a></div>
+                                                <img v-bind:src="blog.userInfo.userHeadPortrait" alt="" class="ui avatar image">
+                                                <div class="content"><a href="javascript:;" class="header" v-cloak>{{blog.userInfo.userNickName}}</a></div>
                                             </div>
-                                            <div class="item">
-                                                <i class="calendar icon"></i><span>{{blog.createTime | dateFormat}}</span>
+                                            <div class="item" v-cloak>
+                                                <i class="calendar icon"></i><span>{{blog.createtime | dateFormat}}</span>
                                             </div>
-                                            <div class="item">
+                                            <!--查看数 -->
+                                            <div class="item" v-cloak>
                                                 <i class="eye icon"></i><span>{{blog.views}}</span>
                                             </div>
-                                            <div class="item">
-                                                <i class="comment outline icon"></i><span>{{blog.commentCount}}</span>
+                                            <!--评论数 -->
+                                            <div class="item" v-cloak>
+                                                <i class="comment outline icon"></i><span>{{blog.commentcount}}</span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="right aligned five wide column">
-                                        <a v-bind:href="'types.html?id='+blog.blogType.id" target="_blank" class="ui teal basic label m-padded-tiny m-text-thin">{{blog.blogType.name}}</a>
+                                    <div class="right aligned five wide column" v-cloak>
+                                        <a href="javascript:;" target="_blank" class="ui teal basic label m-padded-tiny m-text-thin" @click="goType(blog.blogType.typeid)">{{blog.blogType.typename}}</a>
                                     </div>
                                 </div>
                             </div>
-
                             <!--博文图片-->
                             <div class="five wide column">
                                 <a v-bind:href="'blog.html?blogId='+blog.blogId" target="_blank">
-                                    <img v-bind:src="blog.firstPicture"  alt="" class="ui rounded image">
+                                    <img v-bind:src="blog.firstpicture"  alt="" class="ui rounded image">
                                 </a>
                             </div>
                         </div>
