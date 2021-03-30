@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xiejiabin1/mybloghtml@master/lib/editormd/css/editormd.min.css">
+    <link rel="stylesheet" href="lib/editormd/css/editormd.min.css">
     <link rel="stylesheet" href="css/typo.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="lib/tocbot/tocbot.css">
@@ -20,7 +20,7 @@
 <script src="Project/autoload.js"></script>
 <div id="blogDetail">
     <!--导航-->
-    <nav id="nav" class="gird-header" style="display: none">
+    <nav id="nav" class="gird-header" style="display: none;">
         <div class="ui container">
             <div class="ui inverted secondary stackable menu">
                 <h2 class="ui olive header item" style="font-family: STSong">干净</h2>
@@ -56,32 +56,32 @@
 
     <!--顶部图片-->
     <div class="m-bg-type_outer" style="width: 100%;height: 500px" id="waypoint">
-        <img v-bind:src="blog.firstPicture" alt="" class="ui m-bg image" style="width: 100%;height: 100%">
+        <img v-bind:src="blog.firstpicture" alt="" class="ui m-bg image" style="width: 100%;height: 100%">
         <div class="m-bg-class_cover">
             <div class="ui container" style="position: relative ;bottom: -250px;">
                 <h1 class="m-font-size-title-large" align="center" v-cloak>{{blog.title}}</h1>
                 <div class="ui container" align="center">
                     <div class="ui horizontal link list" align="center">
                         <div class="item">
-                            <div class="ui orange basic label" style="font-size: 7px" v-cloak>{{blog.flag}}</div>
+                            <div class="ui orange basic label" style="font-size: 8px" v-cloak>{{blog.userInfo.userNickName}}</div>
                         </div>
                         <div class="item">
-                            <i class="user outline outline icon m-font-size-text-mini"></i>
-                            <a href="#" style="color: #ffffff;font-size: 18px" v-cloak>{{blog.user.nickName}}</a>
+                            <i class="user outline outline icon m-font-size-text-mini " style="float: left;"></i>
+                            <a href="#" style="color: #ffffff;font-size: 18px" v-cloak>{{blog.userInfo.userNickName}}</a>
                         </div>
                         <div class="item">
-                            <i class="calendar icon m-font-size-text-mini"></i>
-                            <span class="m-font-size-text-mini" v-cloak>{{blog.createTime | dateFormat}}</span>
+                            <i class="calendar icon m-font-size-text-mini"  style="float: left;"></i>
+                            <span class="m-font-size-text-mini" v-cloak>{{blog.createtime | dateFormat}}</span>
                         </div>
                         <div class="item">
-                            <i class="clone icon m-font-size-text-mini"></i>
-                            <a href="#" target="_blank" style="color: #ffffff;font-size: 16px" v-cloak>{{blog.blogType.name}}</a>
+                            <i class="clone icon m-font-size-text-mini"  style="float: left;"></i>
+                            <a href="#" target="_blank" style="color: #ffffff;font-size: 16px" v-cloak>{{blog.blogType.typename}}</a>
                         </div>
                         <div class="item">
-                            <i class="eye icon m-font-size-text-mini"></i><span class="m-font-size-text-mini" v-cloak>{{blog.views}}</span>
+                            <i class="eye icon m-font-size-text-mini"  style="float: left;"></i><span class="m-font-size-text-mini" v-cloak>{{blog.views}}</span>
                         </div>
                         <div class="item">
-                            <i class="comment icon m-font-size-text-mini"></i><span class="m-font-size-text-mini" v-cloak>{{blog.commentCount}}</span>
+                            <i class="comment icon m-font-size-text-mini"  style="float: left;"></i><span class="m-font-size-text-mini" v-cloak>{{blog.commentcount}}</span>
                         </div>
                     </div>
                 </div>
@@ -123,7 +123,7 @@
                 <!--中间主要内容部分-->
                 <div v-html="blog.content" id="content" class="typo typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large"></div>
 
-                <div class="ui horizontal divider">end</div>
+                <div class="ui horizontal divider">(结束)end</div>
 
                 <!--赞赏-->
                 <div v-if="blog.appreciation">
@@ -151,11 +151,11 @@
                     <div class="ui middle aligned grid">
                         <div class="nine wide column">
                             <ui class="list">
-                                <li>作者：<span>{{blog.user.nickName}}</span><a href="about.html" target="_blank">（联系作者）</a></li>
-                                <li>发表时间：<span>{{blog.createTime | dateFormat}}</span></li>
+                                <li>作者：<span>{{blog.userInfo.userNickName}}</span><a href="about.html" target="_blank">（联系作者）</a></li>
+                                <li>发表时间：<span>{{blog.createtime | dateFormat}}</span></li>
                                 <li>最后更新：
-                                    <span v-if="blog.updateTime != null">{{blog.updateTime | dateFormat}}</span>
-                                    <span v-if="blog.updateTime == null">{{blog.createTime | dateFormat}}</span>
+                                    <span v-if="blog.updatetime != null">{{blog.updatetime | dateFormat}}</span>
+                                    <span v-if="blog.updatetime == null">{{blog.createtime | dateFormat}}</span>
                                 </li>
                                 <li>版权声明：本文遵循<a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener"> CC 4.0 BY-SA </a>版权协议，转载请附上原文出处链接和本声明。</li>
                             </ui>
@@ -169,8 +169,8 @@
                         <div id="message-container" class="ui teal segment">
                             <div>
                                 <div class="ui threaded comments" style="max-width: 100%;">
-                                    <h3 class="ui dividing header" v-if="blog.commentCount>0">评论</h3>
-                                    <h3 class="ui dividing header" v-if="blog.commentCount==0">暂无评论</h3>
+                                    <h3 class="ui dividing header" v-if="blog.commentcount>0">评论</h3>
+                                    <h3 class="ui dividing header" v-if="blog.commentcount==0">暂无评论</h3>
                                     <div class="comment" v-for="comment in blog.commentList">
                                         <a class="avatar">
                                             <img v-bind:src="'https://xiejiabin.online/images/avatar/'+comment.user.avatar" style="width: 35px;height: 35px;border-radius: 50%">

@@ -2,8 +2,8 @@ let blogDetail = new Vue({
     el:"#blogDetail",
     data:{
         blog:{
-            user:{
-                nickName:'',
+            userInfo:{
+                userNickName:'',
             },
             blogType:{
                 name:'',
@@ -17,10 +17,11 @@ let blogDetail = new Vue({
     },
     methods:{
         getBlog(){
-            $.get(serverIp+"blog/selectBlogById",{blogId:this.blogId},function (bto) {
-                if(bto.data != null){
-                    blogDetail.blog = bto.data;
-                    blogDetail.blog.content = marked(bto.data.content);
+            $.post(serverIp+"pub/blogDetailInfo",{blogid:this.blogId,contentType:"application/json;charset=UTF-8",dataType:"json"},function (fes) {
+                console.log(fes);
+                if(fes.data != null){
+                    blogDetail.blog = fes.data;
+                    blogDetail.blog.content = marked(fes.data.content);
                 }else {
                     window.location.href="error.html";
                 }
