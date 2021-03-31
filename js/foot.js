@@ -41,9 +41,10 @@ setTimeout(function () {
 			window.location.href = "error.html";
 		}
 	});
-	$.get(serverIp + "pub/visitCount", {contentType:"application/json;charset=UTF-8",dataType:"json"},function(fes) {
+	$.get(serverIp + "pub/viewsCount", {contentType:"application/json;charset=UTF-8",dataType:"json"},function(fes) {
+        console.log(fes)
 		if (fes.data != null) {
-			$("#blog-message h2:eq(1)").html(fes.data.counts);
+			$("#blog-message h2:eq(1)").html(fes.data);
 		} else {
 			window.location.href = "error.html";
 		}

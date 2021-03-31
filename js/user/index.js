@@ -17,6 +17,7 @@ let userIndex = new Vue({
                     }
                     if(res.code === 200){
                         userIndex.recommendList = res.data;
+
                     }
                 });
         },
@@ -24,6 +25,7 @@ let userIndex = new Vue({
             $.get(serverIp+"pub/selectPublished", {pageNum:pageNum,pageSize:10,contentType:"application/json;charset=UTF-8",dataType:"json"}, function (bto) {
                 console.log(bto)
                 if (bto.data != null) {
+
                     userIndex.pageInfo = bto.data;
                     userIndex.pageNum = pageNum;
                 } else {
@@ -33,7 +35,12 @@ let userIndex = new Vue({
         },
         goType(id){
             window.location.href = "types.html?id="+id;
+        },
+        goPage(blogid,views){
+            localStorage.setItem("views",views)
+            location.href = "blog.html?blogId="+blogid+"";
         }
+
     },
     filters:{
         dateFormat(dateTime){

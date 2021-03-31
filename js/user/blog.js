@@ -18,9 +18,10 @@ let blogDetail = new Vue({
     methods:{
         getBlog(){
             $.post(serverIp+"pub/blogDetailInfo",{blogid:this.blogId,contentType:"application/json;charset=UTF-8",dataType:"json"},function (fes) {
-                console.log(fes);
+                console.log(fes)
                 if(fes.data != null){
                     blogDetail.blog = fes.data;
+                    blogDetail.blog.views = localStorage.getItem("views");
                     blogDetail.blog.content = marked(fes.data.content);
                 }else {
                     window.location.href="error.html";
@@ -28,9 +29,8 @@ let blogDetail = new Vue({
             });
         },
         addViews(){
-            alert(blog.v)
-            $.post(serverIp+"pub/addViews",{blogId:this.blogId,},function (flag) {
-                if(!flag){
+            $.post(serverIp+"pub/addViews",{blogid:this.blogId,views:localStorage.getItem("views"),contentType:"application/json;charset=UTF-8",dataType:"json"},function (fes) {
+                if(fes.code != 200){
                     window.location.href="error.html";
                 }
             });

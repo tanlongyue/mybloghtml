@@ -34,6 +34,10 @@ let types = new Vue({
         },
         goType(id){
             window.location.href = "types.html?id="+id;
+        },
+        goPage(blogid,views){
+            localStorage.setItem("views",views)
+            location.href = "blog.html?blogId="+blogid+"";
         }
     },
     filters:{

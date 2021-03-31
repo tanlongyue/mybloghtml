@@ -78,7 +78,7 @@
                             <a href="#" target="_blank" style="color: #ffffff;font-size: 16px" v-cloak>{{blog.blogType.typename}}</a>
                         </div>
                         <div class="item">
-                            <i class="eye icon m-font-size-text-mini"  style="float: left;"></i><span class="m-font-size-text-mini" v-cloak>{{blog.views}}</span>
+                            <i class="eye icon m-font-size-text-mini"  style="float: left;"></i><span class="m-font-size-text-mini"  id="Blogviews" data-value="{{blog.views}}" v-cloak>{{blog.views}}</span>
                         </div>
                         <div class="item">
                             <i class="comment icon m-font-size-text-mini"  style="float: left;"></i><span class="m-font-size-text-mini" v-cloak>{{blog.commentcount}}</span>
@@ -173,7 +173,7 @@
                                     <h3 class="ui dividing header" v-if="blog.commentcount==0">暂无评论</h3>
                                     <div class="comment" v-for="comment in blog.commentList">
                                         <a class="avatar">
-                                            <img v-bind:src="'https://xiejiabin.online/images/avatar/'+comment.user.avatar" style="width: 35px;height: 35px;border-radius: 50%">
+                                            <img v-bind:src="''+comment.user.avatar" style="width: 35px;height: 35px;border-radius: 50%">
                                         </a>
                                         <div class="content">
                                             <a class="author">
@@ -194,7 +194,7 @@
                                         <div class="comments" v-if="comment.replyCommentList != null">
                                             <div class="comment" v-for="replyComment in comment.replyCommentList">
                                                 <a class="avatar">
-                                                    <img v-bind:src="'https://xiejiabin.online/images/avatar/'+replyComment.user.avatar" style="width: 35px;height: 35px;border-radius: 50%">
+                                                    <img v-bind:src="''+replyComment.user.avatar" style="width: 35px;height: 35px;border-radius: 50%">
                                                 </a>
                                                 <div class="content">
                                                     <a class="author">

@@ -166,8 +166,8 @@
                         <div class="ui large aligned mobile reversed stackable grid" >
                             <!--博文信息-->
                             <div class="eleven wide column ">
-                                <h2 class="ui header" ><a v-bind:href="'blog.html?blogId='+blog.blogid" target="_blank" class="m-black">{{blog.title}}</a></h2>
-                                <p class="m-text m-margin-top-max" v-cloak><a v-bind:href="'blog.html?blogId='+blog.blogid" target="_blank" class="m-black">{{blog.description}}......</a></p>
+                                <h2 class="ui header" ><a href="" @click="goPage(blog.blogid,blog.views)"  target="_blank" class="m-black">{{blog.title}}</a></h2>
+                                <p class="m-text m-margin-top-max" v-cloak><a href="" @click="goPage(blog.blogid,blog.views)"  target="_blank" class="m-black">{{blog.description}}......</a></p>
                                 <div class="ui m-margin-top-max grid">
                                     <div class="eleven wide column">
                                         <div class="ui mini horizontal link list">
@@ -195,7 +195,7 @@
                             </div>
                             <!--博文图片-->
                             <div class="five wide column">
-                                <a v-bind:href="'blog.html?blogId='+blog.blogid" target="_blank">
+                                <a href="" @click="goPage(blog.blogid,blog.views)"  target="_blank">
                                     <img v-bind:src="blog.firstpicture"  alt="" class="ui rounded image">
                                 </a>
                             </div>
