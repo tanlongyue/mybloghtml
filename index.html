@@ -25,7 +25,7 @@
             <div class="ui inverted secondary stackable menu">
                 <h2 class="ui olive header item" style="font-family: STSong">干净</h2>
                 <div class="right m-item item m-mobile-hide">
-                    <a href="index.html" class="active m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+                    <a href="index.html" class="active m-item item m-mobile-hide"><i class="home icon" ></i>首页</a>
                     <a href="types.html?id=1" class="m-item item m-mobile-hide"><i class="clone outline icon"></i>分类</a>
                     <a href="archives.html" class="m-item item m-mobile-hide"><i class="clock icon"></i>时间轴</a>
                     <a href="message.html" class="m-item item m-mobile-hide"><i class="book icon"></i>留言板</a>
@@ -167,7 +167,7 @@
                             <!--博文信息-->
                             <div class="eleven wide column ">
                                 <h2 class="ui header" ><a v-bind:href="'blog.html?blogId='+blog.blogid" target="_blank" class="m-black">{{blog.title}}</a></h2>
-                                <p class="m-text m-margin-top-max" v-cloak>{{blog.description}}......</p>
+                                <p class="m-text m-margin-top-max" v-cloak><a v-bind:href="'blog.html?blogId='+blog.blogid" target="_blank" class="m-black">{{blog.description}}......</a></p>
                                 <div class="ui m-margin-top-max grid">
                                     <div class="eleven wide column">
                                         <div class="ui mini horizontal link list">
@@ -176,15 +176,15 @@
                                                 <div class="content"><a href="javascript:;" class="header" v-cloak>{{blog.userInfo.userNickName}}</a></div>
                                             </div>
                                             <div class="item" v-cloak>
-                                                <i class="calendar icon"></i><span>{{blog.createtime | dateFormat}}</span>
+                                                <i class="calendar icon" style="float: left;"></i><span>{{blog.createtime | dateFormat}}</span>
                                             </div>
                                             <!--查看数 -->
                                             <div class="item" v-cloak>
-                                                <i class="eye icon"></i><span>{{blog.views}}</span>
+                                                <i class="eye icon" style="float: left;"></i><span>{{blog.views}}</span>
                                             </div>
                                             <!--评论数 -->
                                             <div class="item" v-cloak>
-                                                <i class="comment outline icon"></i><span>{{blog.commentcount}}</span>
+                                                <i class="comment outline icon" style="float: left;"></i><span>{{blog.commentcount}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -195,7 +195,7 @@
                             </div>
                             <!--博文图片-->
                             <div class="five wide column">
-                                <a v-bind:href="'blog.html?blogId='+blog.blogId" target="_blank">
+                                <a v-bind:href="'blog.html?blogId='+blog.blogid" target="_blank">
                                     <img v-bind:src="blog.firstpicture"  alt="" class="ui rounded image">
                                 </a>
                             </div>
