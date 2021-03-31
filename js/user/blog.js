@@ -28,7 +28,8 @@ let blogDetail = new Vue({
             });
         },
         addViews(){
-            $.post(serverIp+"blog/addViews",{blogId:this.blogId},function (flag) {
+            alert(blog.v)
+            $.post(serverIp+"pub/addViews",{blogId:this.blogId,},function (flag) {
                 if(!flag){
                     window.location.href="error.html";
                 }
