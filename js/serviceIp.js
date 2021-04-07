@@ -1,9 +1,9 @@
-var serverIp = "http://192.168.0.105:8080/";
+var serverIp = "http://localhost:8080/";
 /***
  * 虚拟机ip
  *
  */
-var VMwareIp = "http://192.168.0.106:8080/";
+var VMwareIp = "http://192.168.211.147:8080/";
 function clear(){
     removeCookie("userId");
     removeCookie("SESSION");
