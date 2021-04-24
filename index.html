@@ -140,7 +140,7 @@
         </div>
         <div class="ui stackable m-container-mini m-opacity grid">
             <div class="m-margin-tb-tiny four wide column" v-for="blog in recommendList">
-                <a v-bind:href="'blog.html?blogId='+blog.blogid" class="class_outer" target="_blank" >
+                <a href="" @click="goPage(blog.blogid,blog.views)"  class="class_outer" target="_blank" >
                     <img v-bind:src="blog.firstpicture" alt="" style="width:360px;height:200px;">
                     <span class="class_cover" >
                      <h4 class="m-font-size-blog-text m-margin-tb-tiny" v-cloak>{{blog.title}}</h4>
@@ -285,7 +285,7 @@
             <br/>
             <img style="width:24px;height:24px;margin-bottom:-8px" src="https://icp.gov.moe/images/ico64.png">
             <a href="https://icp.gov.moe" target="_blank" data-pjax-state="">萌号 </a>
-            <a href="https://icp.gov.moe/?keyword=2020430423" target="_blank" data-pjax-state="">2020430423号</a>
+            <a href="#" target="_blank" data-pjax-state="">*********</a>
         </div>
     </footer>
 

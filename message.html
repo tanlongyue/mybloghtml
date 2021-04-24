@@ -143,20 +143,20 @@
                                 <div class="comments" v-if="message.replyMessagesList != null">
                                     <div class="comment" v-for="replayMessage in message.replyMessagesList">
                                         <a class="avatar">
-                                            <img v-bind:src="'http://192.168.0.106:8080/'+replayMessage.user.avatar" style="width: 35px;height: 35px;border-radius: 50%">
+                                            <img v-bind:src="replayMessage.userInfo.userHeadPortrait" style="width: 35px;height: 35px;border-radius: 50%">
                                         </a>
                                         <div class="content">
                                             <a class="author">
-                                                <span>{{replayMessage.user.nickName}}</span>
-                                                <div class="ui mini basic teal left pointing label m-padded-mini" v-if="replayMessage.adminMessage">
+                                                <span>{{replayMessage.userInfo.userNickName}}</span>
+                                                <div class="ui mini basic teal left pointing label m-padded-mini" v-if="message.userInfo.id == 1">
                                                     管理员
                                                 </div>
-                                                &nbsp;<span class="m-teal">@&nbsp;{{replayMessage.parentMessage.user.nickName}}</span>
+                                                &nbsp;<span class="m-teal">@&nbsp;{{replayMessage.parentMessage.userInfo.userNickName}}</span>
                                             </a>
                                             <div class="metadata">
-                                                <span class="date">{{replayMessage.createTime | dateFormat}}</span>
+                                                <span class="date">{{replayMessage.createtime | dateFormat}}</span>
                                             </div>
-                                            <div class="text">{{replayMessage.content}}</div>
+                                            <div class="text"><span style="padding-left:6%;">{{replayMessage.content}}</span></div>
                                             <div class="actions">
                                                 <a class="reply" @click="replay(replayMessage)">回复</a>
                                             </div>
@@ -238,7 +238,7 @@
             <br/>
             <img style="width:24px;height:24px;margin-bottom:-8px" src="https://icp.gov.moe/images/ico64.png">
             <a href="https://icp.gov.moe" target="_blank" data-pjax-state="">萌号 </a>
-            <a href="https://icp.gov.moe/?keyword=2020430423" target="_blank" data-pjax-state="">2020430423号</a>
+            <a href="#" target="_blank" data-pjax-state="">*********</a>
         </div>
     </footer>
 

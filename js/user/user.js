@@ -84,7 +84,7 @@ let updateUser = new Vue({
             $.get(serverIp+"authc/getPhoto",{contentType:"application/json;charset=UTF-8",dataType:"json",token:getCookie("SESSION")},function (res) {
                 console.log(res);
                 if(res.code === 200){
-                    updateUser.user.userImage = "http://192.168.0.101:8080"+res.data;
+                    updateUser.user.userImage = "http://192.168.0.106:8080"+res.data;
                 }else {
                     window.location.href="error.html";
                 }

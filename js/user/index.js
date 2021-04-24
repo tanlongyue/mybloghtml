@@ -25,7 +25,6 @@ let userIndex = new Vue({
             $.get(serverIp+"pub/selectPublished", {pageNum:pageNum,pageSize:10,contentType:"application/json;charset=UTF-8",dataType:"json"}, function (bto) {
                 console.log(bto)
                 if (bto.data != null) {
-
                     userIndex.pageInfo = bto.data;
                     userIndex.pageNum = pageNum;
                 } else {
